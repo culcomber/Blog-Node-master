@@ -1,0 +1,24 @@
+extends index
+
+block content
+  div.content.create
+    include components/flash
+    div#tips
+      p 浏览器不支持
+    div.create-article
+      div.editor-front
+        - if (user.avatar.substr(0,5) === 'https')
+          img(src='#{user.avatar}')
+        -else
+          img(src='/img/#{user.avatar}')
+      p.editor
+        a(href='/posts?author=#{user._id}',data-title='',data-content='#{user.bio}')  #{user.name}
+      div.create-form
+        form.ui.form.segment(method='post',action='/create/submit?author=#{user._id}',enctype='multipart/form-data')
+          div.field.required
+            lable 标题
+            input(type='text',name='title')
+          div.field.required
+            lable 内容
+            textarea#createform(name='content',rows='15')
+          input(type='submit',value='发布')

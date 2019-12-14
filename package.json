@@ -1,0 +1,48 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "private": true,
+  "main": "app.js",
+  "scripts": {
+    "test": "istanbul cover node_modules/mocha/bin/_mocha",
+    "start": "cross-env NODE_ENV=production pm2 start index.js --name 'myblog'"
+  },
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "cjs": "0.0.11",
+    "config-lite": "^2.0.0",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^1.3.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "express": "^4.15.2",
+    "express-formidable": "^1.0.0",
+    "express-session": "^1.15.2",
+    "express-winston": "^2.4.0",
+    "highlightjs": "^9.12.0",
+    "https": "^1.0.0",
+    "jade": "~1.11.0",
+    "marked": "^0.6.2",
+    "moment": "^2.18.1",
+    "mongolass": "^2.4.5",
+    "morgan": "~1.8.1",
+    "objectid-to-timestamp": "^1.3.0",
+    "qiniu": "^7.0.5",
+    "request": "^2.81.0",
+    "requirejs": "^2.3.3",
+    "serve-favicon": "^2.4.2",
+    "sha1": "^1.1.1",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-plumber": "^1.0.0",
+    "gulp-stylus": "^2.6.0",
+    "gulp-uglify": "^2.1.2",
+    "mocha": "^3.3.0",
+    "supertest": "^3.0.0"
+  }
+}

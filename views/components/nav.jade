@@ -1,0 +1,38 @@
+div.nav.ui.inverted.vertical.masthead.center.aligned.segment
+  div.ui.container.nav_ctn
+    ul.ui.large.secondary.inverted.pointing.menu.nav_ctn
+      li.toc.item
+        i.sidebar.icon
+      li.nav_Menuitem.active.item
+        a(href='/posts') 识常
+      li.nav_Menuitem.active.item
+        a(href='#') 笔记
+      li.nav_Menuitem.active.item
+        a(href='#') 问答
+      if user
+        li.ui.right.floated.dropdown.item #{user.name}
+          i.dropdown
+          div.menu
+            a.item(href='/user?author=#{user._id}')
+              i.user.icon
+              span 个人主页
+            a.item(href='/user/newArticle')
+              i.write.icon
+              span 写文章
+            //- a.item(href='/user/collections?author=#{user._id}')
+            //-   i.folder.open.outline.icon
+            //-   span 我的收藏集
+            a.item(href='/signout')
+              i.sign.out.icon
+              span 登出
+      else
+        div.right.item
+          a.ui.inverted.button(href='/signin')
+            //- i.sign.in.icon
+            span 登录
+          a.ui.inverted.button(href='/signup')
+            //- i.add.user.icon
+            span 注册
+  //- div.ui.text.container
+  //-   h1.ui.inverted.header My Blog
+  //-   h2 Welcome,Everyone!

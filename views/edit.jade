@@ -1,0 +1,25 @@
+extends index
+
+block content
+  div.content.edit
+    include components/flash
+    div#tips
+      p
+    div.article-edit
+      div.editor-front
+        - if (post.author.avatar.substr(0,5) === 'https')
+          img(src='#{post.author.avatar}')
+        -else
+          img(src='/img/#{post.author.avatar}')
+      p.editor
+        a(href='/user?author=#{user._id}',data-title='',data-content='#{user.bio}')  #{user.name}
+
+      div.edit-form
+        form.ui.form.segment(method='post',action='/article/edit/finish?postId=#{post._id}',enctype='multipart/form-data')
+          div.field.required
+            lable 标题
+            input(type='text',name='title',value='#{post.title}')
+          div.field.required
+            lable 内容
+            textarea#createform(name='content',rows='15')  #{post.content}
+          input(type='submit',value='发布')

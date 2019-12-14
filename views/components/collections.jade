@@ -1,0 +1,53 @@
+div.ui.items
+  div.item
+    div.content.self-content.collections
+      div.meta
+      - for(var i = 0;i<collections.length;i++){
+        - var collect = collections[i]
+        div.meta
+        -if (collect.author.avatar.substr(0,5) === 'https')
+          p.writer-front
+            img(src='#{collect.author.avatar}')
+        -else
+          p.writer-front
+            img(src='/img/#{collect.author.avatar}')
+        p.writer
+          a(href='/user?author=#{collect.author._id}',data-title='#{collect.author.name}',data-content='#{collect.author.bio}')  #{collect.author.name}
+          span.tag #{collect.created_at}
+        a.header.post-header(href='/article?postId=#{collect._id}') #{collect.title}
+        div.extra
+          div.mini.ui.buttons
+            button.mini.ui.button
+              i.unhide.green.icon
+              span #{collect.pv}
+            //div.or
+            button.mini.ui.button
+              i.talk.outline.icon
+              span #{collect.commentsCount}
+          button.mini.ui.button.favourite(user='#{user._id}',post='#{collect._id}')
+            -var status = false
+            -var favourite = collect.favourite
+            -for(var k in favourite){
+                -count++
+                if user._id === favourite[k]
+                -status = true
+            -}
+            if status
+              i.thumbs.outline.up.red.icon
+            else
+              i.thumbs.outline.up.icon
+            span #{collect.favourite_count}
+          button.mini.ui.primary.button.addcollect(author='#{user._id}',post='#{collect._id}')
+            - var flag = false
+            - var check_fork = collections
+            - var j = 0
+            - for(;j<check_fork.length;j++){
+                if collect._id == check_fork[j]
+                - flag = true
+                - break
+            - }
+              if flag
+                i 已收藏
+              else
+                i 收藏
+      -}

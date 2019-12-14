@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    meta(http-equiv="Content-Type",content="text/html; charset=utf-8")
+    meta(name="viewport",content="width=device-width,initial-scale=1")
+    title #{blog.title}
+    link(rel='stylesheet',href='https://cdn.bootcss.com/semantic-ui/2.1.8/semantic.min.css')
+    link(href="https://cdn.bootcss.com/github-markdown-css/2.8.0/github-markdown.min.css",rel="stylesheet")
+    link(href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css",rel="stylesheet")
+
+    link(rel='stylesheet',href='/stylesheets/style.css')
+  body
+    include components/response
+    div.pusher
+      include components/nav
+
+      block content
+
+      //div.ui.basic.modal
+      //  i.close.icon
+      //  div.header  登录
+      //  div.image.content
+      //    div.image
+      //      i.github.icon
+      //      div.extra.content
+      //        div.ui.buttons
+      //          div.ui.basic.green.button#github Github Sign
+      //  div.image.content
+      //    div.image
+      //      i.sign.in.icon
+      //      div.extra.content
+      //        div.ui.buttons
+      //          a.ui.basic.green.button(href='/signin') Blog Sign
+      //  div.actions
+      //    div.two.fluid.ui.inverted.buttons
+      //      div.ui.ok.green.basic.inverted.button
+      //        i.remove.icon
+      //        b 取消
+    script(src='https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js',type='text/javascript')
+    script(src='https://cdn.bootcss.com/semantic-ui/2.1.8/semantic.min.js',type='text/javascript')
+    script(type='text/javascript',data-main='/javascripts/application',src='/javascripts/require.js',defer async='true')

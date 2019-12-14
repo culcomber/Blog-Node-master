@@ -1,0 +1,96 @@
+div.ui.large.top.fixed.hidden.menu
+  div.ui.styled.accordion.floowing_Mobile
+    div.title MENU
+      i.dropdown
+    div.content
+      div.accordion
+        div.title PAGE
+          i.dropdown.icon
+        div.content
+          a.item(href='/posts') 识常
+          a.item(href='#') 笔记
+          a.item(href='#') 问答
+      if user
+        a.item(href='/user?author=#{user._id}')
+          i.user.icon
+          span 个人主页
+        a.item(href='/user/newArticle')
+          i.write.icon
+          span 写文章
+        //- a.item(href='/user/collections?author=#{user._id}')
+        //-   i.folder.open.outline.icon
+        //-   span 我的收藏集
+        a.item(href='/signout')
+          i.sign.out.icon
+          span 登出
+      else
+        a.item#github_sign
+          i.sign.in.icon
+          span 登录
+        a.item(href='/signup')
+          i.add.user.icon
+          span 注册
+
+  div.ui.container.floowing_pc
+    a.active.item(href='/posts') 识常
+    a.active.item(href='#') 笔记
+    a.active.item(href='#') 问答
+    if user
+      div.ui.right.floated.dropdown.item #{user.name}
+        i.dropdown
+        div.menu
+          a.item(href='/user?author=#{user._id}')
+            i.user.icon
+            span 个人主页
+          a.item(href='/user/newArticle')
+            i.write.icon
+            span 写文章
+          //- a.item(href='/user/collections?author=#{user._id}')
+          //-   i.folder.open.outline.icon
+          //-   span 我的收藏集
+          a.item(href='/signout')
+            i.sign.out.icon
+            span 登出
+    else
+      div.right.menu
+        div.item
+          a.ui.button.github_sign
+            i.sign.in.icon
+            span 登录
+        div.item
+          a.ui.primary.button(href='/signup')
+            i.add.user.icon
+            span 注册
+
+<!--sidebar menu-->
+ul.ui.vertical.inverted.sidebar.menu
+  li.item.active
+    a(href='/posts') 识常
+    a(href='#') 笔记
+    a(href='#') 问答
+  if user
+   li.item
+    a(href='/user?author=#{user._id}')
+      i.user.icon
+      span 个人主页
+   li.item
+    a(href='/user/newArticle')
+      i.write.icon
+      span 写文章
+   li.item
+    //- a(href='/user/collections?author=#{user._id}')
+    //-   i.folder.open.outline.icon
+    //-   span 我的收藏集
+   li.item
+    a(href='/signout')
+      i.sign.out.icon
+      span 登出
+  else
+   li.item
+    a.github_sign
+      i.sign.in.icon
+      span 登录
+   li.item
+    a(href='/signup')
+      i.add.user.icon
+      span 注册
